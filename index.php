@@ -1,3 +1,7 @@
+<?php include 'db.php';
+
+var_dump(generaStatistiche()); ?>
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
@@ -6,14 +10,14 @@
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
   <link rel="stylesheet" href="dist/Bootstrap4_1Extension.css">
   <link rel="stylesheet" href="dist/app.css">
-  <title>javascriptBasket</title>
+  <title>php-Basket</title>
 </head>
 <body>
   <div id="main-container">
     <header >
       <i class="fas fa-basketball-ball"></i>
       <h1 class="white_text">TOP 100 <span>PLAYERS DATABASE<span></h1>
-      <img src="hamburger.svg" class="positionAbsolute_centerRight">
+      <img src="dist/assets/hamburger.svg" class="positionAbsolute_centerRight">
     </header>
     <div class="controls_area">
       <div class="searchBar" onclick="gestisciInterazioneControlliRicerca()">
@@ -28,8 +32,5 @@
     </div>
   </div>
 
-
-    <script src="dist/usefulMethods.js" charset="utf-8"></script>
-    <script src="dist/app.js" charset="utf-8"></script>
   </body>
   </html>
