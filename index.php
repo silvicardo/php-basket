@@ -1,6 +1,6 @@
 <?php include 'db.php';
 
-var_dump(generaStatistiche()); ?>
+$giocatori = generaDatabaseGiocatori(10); ?>
 
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -28,7 +28,25 @@ var_dump(generaStatistiche()); ?>
       </div>
     </div>
     <div class="content">
-      <div class="full_database" id="db"></div>
+      <div class="full_database" id="db">
+        <?php foreach ($giocatori as $giocatore) { ?>
+          <div class="player_card">
+            <div class="card_header">
+              <div class="player_id">
+                <h2 class="">ID GIOCATORE: <?php echo $giocatore['id']; ?></h2>
+              </div>
+            </div>
+            <div class="card_body">
+              <ul class="player_stats player_<?php echo $giocatore['id']; ?>">
+                <?php $statisticheGiocatore = $giocatore['statistiche']; ?>
+                <?php foreach ($statisticheGiocatore as $nomeStatistica => $statistica) { ?>
+                <li><span class="stat_key "><?php echo $nomeStatistica; ?> :</span> <?php echo $statistica; ?></li>
+              <?php } ?>
+              </ul>
+            </div>
+          </div>
+        <?php } ?>
+      </div>
     </div>
   </div>
 

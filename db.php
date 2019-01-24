@@ -2,6 +2,76 @@
 <?php
 #PHP DATABASE
 
+function generaDatabaseGiocatori($nrGiocatori) {
+  $arrayGiocatori = [];
+
+  $arrayId = generaIdCasualiDifferentiPer($nrGiocatori);
+
+  for ($i = 0; $i < count($arrayId); $i++) {
+
+    $arrayGiocatori[] = generaNuovoOggettoGiocatoreRandomCon($arrayId[$i]);
+
+  }
+
+  return $arrayGiocatori;
+}
+
+
+function databaseContiene($database, $id) {
+
+  for ($i = 0; $i < count($database); $i++) {
+    if ($database[$i]["id"] == $id) {
+      return $i;
+    }
+  }
+
+  return -1;
+}
+
+function generaIdCasualiDifferentiPer($totaleId) {
+
+  $arrayId = [];
+
+  while (count($arrayId) <= ($totaleId - 1)) {
+    $numeriCasuali = rand(100, 999);
+    $stringaCasuale = generaStringaConLettereCasuali(3);
+
+    $idCandidato = $stringaCasuale . $numeriCasuali;
+
+    if (in_array($idCandidato, $arrayId) === false) {
+      $arrayId[] = $idCandidato;
+    }
+  }
+
+  return $arrayId;
+}
+
+function generaStringaConLettereCasuali($numeroCaratteri) {
+  $alfabeto = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","u","v","w","x","y","z"];
+
+  $stringaRisultato = "";
+
+  for ($i = 0; $i < $numeroCaratteri; $i++) {
+    $indice = rand(0, (count($alfabeto) - 1));
+    $stringaCasuale = $alfabeto[$indice];
+    $letteraCasualeUppercased = ucwords($stringaCasuale);
+    $stringaRisultato = $stringaRisultato . $letteraCasualeUppercased ;
+
+  }
+  return $stringaRisultato;
+}
+
+function generaNuovoOggettoGiocatoreRandomCon($id) {
+
+  $nuovoGiocatore = [
+    "id" => $id,
+  ];
+
+  $nuovoGiocatore['statistiche'] = generaStatistiche();
+
+  return $nuovoGiocatore;
+}
+
 function generaStatistiche() {
   $statistiche = [
     "rimbalzi" => rand(1,30),
@@ -36,10 +106,6 @@ function generaStatistiche() {
   $statistiche["percentualeTiriDa2InPartita"] = ((100 - $percentualeTiriDa3Casuale) . '%');
 
   return $statistiche;
-
-
 }
-
-
 
 ?>
