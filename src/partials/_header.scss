@@ -1,0 +1,27 @@
+
+header {
+  height:100px;
+  width:100%;
+  padding: 0px 30px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  background: black;
+  position: relative;
+  .fa-basketball-ball {
+     color: white;
+     font-size: 40px;
+     margin-right: 20px;
+   }
+   img {
+     margin-right: 20px;
+     cursor: pointer;
+   }
+}
+
+
+@media all and (max-width: 767px) {
+  header h1 span {
+    display: none;
+  }
+}

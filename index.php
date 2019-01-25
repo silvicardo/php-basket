@@ -19,14 +19,6 @@ $giocatori = generaDatabaseGiocatori(10); ?>
       <h1 class="white_text">TOP 100 <span>PLAYERS DATABASE<span></h1>
       <img src="dist/assets/hamburger.svg" class="positionAbsolute_centerRight">
     </header>
-    <div class="controls_area">
-      <div class="searchBar" onclick="gestisciInterazioneControlliRicerca()">
-        <i class="fas fa-search"></i><span>Cerca</span>
-      </div>
-      <div class="searchAgain" onclick="gestisciInterazioneControlliRicerca()">
-        <i class="fas fa-search"></i><span>Cerca di Nuovo</span>
-      </div>
-    </div>
     <div class="content">
       <div class="full_database" id="db">
         <?php foreach ($giocatori as $giocatore) { ?>

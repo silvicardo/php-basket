@@ -1,0 +1,46 @@
+
+.content {
+  height: calc(100vh - 100px);
+  overflow-y: auto;
+  .full_database {
+    margin: 30px 0px 30px 0px;
+    overflow-y: auto;
+    max-width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    overflow: auto;
+    .player_card {
+      margin-top: 40px;
+      overflow: hidden;
+      border: 2px solid black;
+      border-radius: 12px;
+      background: white;
+      .card_header {
+        padding: 0px 20px;
+        height: 70px;
+        line-height: 70px;
+        text-align: center;
+        border-bottom: 2px solid black;
+        background: orange;
+      }
+      .card_body {
+        padding: 20px;
+        ul.player_stats li {
+          margin-bottom: 10px;
+          .stat_key {
+            font-weight: bold;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media all and (max-width: 767px) {
+  .player_card .card_body ul.player_stats li {
+    font-size: 15px;
+    margin-bottom: 10px;
+  }
+}
